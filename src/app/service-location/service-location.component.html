@@ -1,0 +1,43 @@
+<p-card header="Service location">
+  <form [formGroup]="serviceForm" (ngSubmit)="onSubmit()">
+    <div class="p-fluid">
+      <div class="p-field">
+        <label for="address">Address</label>
+        <input id="address" type="text" pInputText formControlName="address">
+        <div *ngIf="serviceForm.get('address')?.invalid && serviceForm.get('address')?.touched" class="error">
+          Address is required.
+        </div>
+      </div>
+      <div class="p-field">
+        <label for="city">City</label>
+        <input id="city" type="text" pInputText formControlName="city">
+        <div *ngIf="serviceForm.get('city')?.invalid && serviceForm.get('city')?.touched" class="error">
+          City is required.
+        </div>
+      </div>
+      <div class="p-field">
+        <label for="state">State</label>
+        <input id="state" type="text" pInputText formControlName="state">
+        <div *ngIf="serviceForm.get('state')?.invalid && serviceForm.get('state')?.touched" class="error">
+          State is required.
+        </div>
+      </div>
+      <div class="p-field p-grid">
+        <div class="p-col">
+          <label for="zipCode">Zip code</label>
+          <input id="zipCode" type="text" pInputText formControlName="zipCode">
+          <div *ngIf="serviceForm.get('zipCode')?.invalid && serviceForm.get('zipCode')?.touched" class="error">
+            Zip code is required.
+          </div>
+        </div>
+        <div class="p-col">
+          <label for="area">Area</label>
+          <p-dropdown id="area" [options]="areas" formControlName="area"></p-dropdown>
+          <div *ngIf="serviceForm.get('area')?.invalid && serviceForm.get('area')?.touched" class="error">
+            Area is required.
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</p-card>

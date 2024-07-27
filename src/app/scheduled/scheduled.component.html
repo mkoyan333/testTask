@@ -1,0 +1,37 @@
+<p-card header="Scheduled">
+  <form [formGroup]="scheduledForm" (ngSubmit)="onSubmit()">
+    <div class="p-fluid">
+      <div class="p-field">
+        <label for="startDate">Start date</label>
+        <p-calendar id="startDate" formControlName="startDate" [showIcon]="true"></p-calendar>
+        <div *ngIf="scheduledForm.get('startDate')?.invalid && scheduledForm.get('startDate')?.touched" class="error">
+          Start date is required.
+        </div>
+      </div>
+      <div class="p-field p-grid">
+        <div class="p-col">
+          <label for="startTime">Start time</label>
+          <p-calendar id="startTime" formControlName="startTime" [timeOnly]="true" [showIcon]="true"></p-calendar>
+          <div *ngIf="scheduledForm.get('startTime')?.invalid && scheduledForm.get('startTime')?.touched" class="error">
+            Start time is required.
+          </div>
+        </div>
+        <div class="p-col">
+          <label for="endTime">End time</label>
+          <p-calendar id="endTime" formControlName="endTime" [timeOnly]="true" [showIcon]="true"></p-calendar>
+          <div *ngIf="scheduledForm.get('endTime')?.invalid && scheduledForm.get('endTime')?.touched" class="error">
+            End time is required.
+          </div>
+        </div>
+      </div>
+      <div class="p-field">
+        <label for="testSelect">Test select</label>
+        <p-dropdown id="testSelect" [options]="testSelectOptions" formControlName="testSelect"></p-dropdown>
+        <div *ngIf="scheduledForm.get('testSelect')?.invalid && scheduledForm.get('testSelect')?.touched" class="error">
+          Test select is required.
+        </div>
+      </div>
+    </div>
+  </form>
+</p-card>
+

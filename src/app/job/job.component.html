@@ -1,0 +1,25 @@
+<p-card header="Job details">
+  <form [formGroup]="jobForm" (ngSubmit)="onSubmit()">
+    <div class="p-fluid">
+      <div class="p-field p-grid">
+        <div class="p-col">
+          <label for="jobType">Job type</label>
+          <p-dropdown id="jobType" [options]="jobType" formControlName="jobType"></p-dropdown>
+          <div *ngIf="jobForm.get('jobType')?.invalid && jobForm.get('jobType')?.touched" class="error">
+            Job type is required.
+          </div>
+        </div>
+        <div class="p-col">
+          <label for="jobSource">Job source</label>
+          <p-dropdown id="jobSource" [options]="jobSource" formControlName="jobSource"></p-dropdown>
+          <div *ngIf="jobForm.get('jobSource')?.invalid && jobForm.get('jobSource')?.touched" class="error">
+            Job source is required.
+          </div>
+        </div>
+      </div>
+      <div class="p-field">
+        <textarea id="jobDescription" rows="4" pInputTextarea formControlName="jobDescription"></textarea>
+      </div>
+    </div>
+  </form>
+</p-card>

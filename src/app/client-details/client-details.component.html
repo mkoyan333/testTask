@@ -1,0 +1,33 @@
+<p-card header="Client details">
+  <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+    <div class="p-fluid">
+      <div class="p-field p-grid">
+        <div class="p-col">
+          <label for="firstname">First name</label>
+          <input id="firstname" type="text" pInputText formControlName="firstName">
+          <div *ngIf="clientForm.get('firstName')?.invalid && clientForm.get('firstName')?.touched" class="error">
+            First name is required.
+          </div>
+        </div>
+        <div class="p-col">
+          <label for="lastname">Last name</label>
+          <input id="lastname" type="text" pInputText formControlName="lastName">
+          <div *ngIf="clientForm.get('lastName')?.invalid && clientForm.get('lastName')?.touched" class="error">
+            Last name is required.
+          </div>
+        </div>
+      </div>
+      <div class="p-field">
+        <label for="phone">Phone</label>
+        <input id="phone" type="text" pInputText formControlName="phone">
+        <div *ngIf="clientForm.get('phone')?.invalid && clientForm.get('phone')?.touched" class="error">
+          Phone is required.
+        </div>
+      </div>
+      <div class="p-field">
+        <label for="email">Email (optional)</label>
+        <input id="email" type="text" pInputText formControlName="email">
+      </div>
+    </div>
+  </form>
+</p-card>
